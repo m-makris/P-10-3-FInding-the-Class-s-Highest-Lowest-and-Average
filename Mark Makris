@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
+
+int main(void) {
+	const int MAX_STUDENTS = 20;
+	int NUMBER_OF_STUDENTS = 0;
+	vector<int>score(NUMBER_OF_STUDENTS);
+	double average = 0;
+	int sum = 0;
+	int highest = INT_MIN;  // Set to the lowest possible integer
+	int lowest = INT_MAX;   // Set to the highest possible integer
+
+
+
+	cout << " Number of students: (maximum " << MAX_STUDENTS << "): ";
+	cin >> NUMBER_OF_STUDENTS;
+
+	if (NUMBER_OF_STUDENTS > MAX_STUDENTS)
+	{
+		cout << "the number of students cannot exceed 20 " << MAX_STUDENTS << ".\n";
+		return 1;
+	}
+	for (int i = 0; i < NUMBER_OF_STUDENTS; i++)
+	{
+		cout << "Enter exam score#" << (i + 1) << ": ";
+		cin >> score[i];
+		sum += score[i];
+
+
+
+
+		if (score[i] < lowest)
+		{
+			lowest = score[i];
+
+		}
+
+		if (score[i] > highest)
+		{
+			highest = score[i];
+
+		}
+
+	}
+	cout << setprecision(1) << fixed;
+	average = (double)sum / NUMBER_OF_STUDENTS;
+	cout << "highest score =  " << highest;
+	cout << ", lowest score = " << setw(2) << lowest;
+	cout << ", Average is =  " << average << endl;
+
+
+
+}
